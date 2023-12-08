@@ -4,8 +4,23 @@
 #include <iomanip>
 
 using namespace std;
+int restart = 0;
 
-int main(){
+int runtime();
+
+int main()
+{
+	while(1)
+	{
+		runtime();
+	}
+
+
+}
+
+
+int runtime()
+{
 
 	cout<<"\n					Calculadora de...\n\n";
 	
@@ -28,7 +43,7 @@ int main(){
 	cout<<"\n\n	Ingresa tu salario bruto mensual: $";
 	cin>>SaBruto;
 	
-	cout<<"Ingresa tu antiguedad en dias: ";
+	cout<<"	Ingresa tu antiguedad en dias: ";
 	cin>>Finicio;
 	
 	SD= SaBruto/30.4;
@@ -121,7 +136,7 @@ int main(){
 	{
 		//1
 		case 1 ... 36810:
-			cout<<"ISR 1\n";
+			//cout<<"ISR 1\n";
 			LimInf = 0.01;
 			LimSup = 368.10;
 			ISRCuo = 0.00;
@@ -129,7 +144,7 @@ int main(){
 			break;
 		//2	
 		case 36811 ... 312435:
-			cout<<"ISR 2\n";
+			//cout<<"ISR 2\n";
 			LimInf = 368.11;
 			LimSup = 3124.35;
 			ISRCuo = 7.05;
@@ -137,7 +152,7 @@ int main(){
 			break;
 		//3
 		case 312436 ... 549075:
-			cout<<"ISR 3\n";
+			//cout<<"ISR 3\n";
 			LimInf = 3124.36;
 			LimSup = 5490.75;
 			ISRCuo = 183.45;
@@ -145,7 +160,7 @@ int main(){
 			break;
 		//4	
 		case 549076 ... 638280:
-			cout<<"ISR 4\n";
+			//cout<<"ISR 4\n";
 			LimInf = 5490.76;
 			LimSup = 6382.80;
 			ISRCuo = 441.00;
@@ -153,7 +168,7 @@ int main(){
 			break;
 		//5
 		case 638281 ... 764190:
-			cout<<"ISR 5\n";
+			//cout<<"ISR 5\n";
 			LimInf = 6382.81;
 			LimSup = 7641.90;
 			ISRCuo = 583.65;
@@ -161,7 +176,7 @@ int main(){
 			break;	
 		//6
 		case 764191 ... 1541280:
-			cout<<"ISR 6\n";
+			//cout<<"ISR 6\n";
 			LimInf = 7641.91;
 			LimSup = 15412.80;
 			ISRCuo = 809.25;
@@ -169,7 +184,7 @@ int main(){
 			break;	
 		//7
 		case 1541281 ... 2429265:
-			cout<<"ISR 7\n";
+			//cout<<"ISR 7\n";
 			LimInf = 15412.81;
 			LimSup = 24292.65;
 			ISRCuo = 2469.15;
@@ -177,7 +192,7 @@ int main(){
 			break;	
 		//8
 		case 2429266 ... 4637850:
-			cout<<"ISR 8\n";
+			//cout<<"ISR 8\n";
 			LimInf = 24292.66;
 			LimSup = 46378.50;
 			ISRCuo = 4557.75;
@@ -185,7 +200,7 @@ int main(){
 			break;	
 		//9
 		case 4637851 ... 6183810:
-			cout<<"ISR 9\n";
+			//cout<<"ISR 9\n";
 			LimInf = 46378.51;
 			LimSup = 61838.10;
 			ISRCuo = 11183.4;
@@ -193,7 +208,7 @@ int main(){
 			break;
 		//10
 		case 6183811 ... 18551431:
-			cout<<"ISR 10\n";
+			//cout<<"ISR 10\n";
 			LimInf = 61838.11;
 			LimSup = 185514.31;
 			ISRCuo = 16130.55;
@@ -201,7 +216,7 @@ int main(){
 			break;
 		//11		
 		default:
-			cout<<"ISR 11\n";
+			//cout<<"ISR 11\n";
 			LimInf = 185514.32;
 			LimSup = qred;
 			ISRCuo = 58180.35;
@@ -275,37 +290,40 @@ int main(){
 	//aguinaldo=(SaBruto/365)*Finicio;
 	pago= SD*15;
 	
-	cout<<"Limite Inferior: "<<LimInf<<endl;
-	cout<<"Exedente: "<<Excedente<<endl;
-	cout<<"ISR Marginal: "<<ISRMar<<endl;
-	cout<<"Cuota ISR: "<<ISRCuo<<endl;
+	cout<<"\n"<<"	-CALCULANDO CON: $"<<SaBruto<< " mensuales	";
+	cout<<"	-Percepcion Quincenal: "<< fixed << setprecision(4)<<quincena<< "		";
+	cout<<"	-Factor de integracion: "<< FacI << "\n\n";
 	
-	cout<<"Subsidio: "<<ISRsub<<endl;
+	
+	
+	cout<<"\n	Limite Inferior: "<<LimInf<<endl;
+	cout<<"	Exedente: "<<Excedente<<endl;
+	cout<<"	ISR Marginal: "<<ISRMar<<endl;
+	cout<<"	Cuota ISR: "<<ISRCuo<<endl;
+	
+	cout<<"	Subsidio: "<<ISRsub<<endl;
 	
 	if(ISRsub>0)
 	{
-	cout<<"ISRFull: 0.0"<<endl;
+	cout<<"	ISRFull: 0.0"<<endl;
 	}
 	else
 	{
-	cout<<"ISRFull: "<<ISRFULL<<endl;
+	cout<<"	ISRFull: "<<ISRFULL<<endl;
 	}
-	cout<<"Resta ISR: "<<SumISR<<endl;
-	cout<<"Sueldo Neto (Sin IMSS): "<<Percep<<endl;
-	
-	cout<<"\n\n"<<"-CALCULANDO CON: $"<<SaBruto<< " mensuales	";
-	cout<<"-Percepcion Quincenal: "<< fixed << setprecision(4)<<quincena<< "		";
-	cout<<"-Factor de integracion: "<< FacI << "\n\n";
+	cout<<"	Resta ISR: "<<SumISR<<endl;
+	cout<<"	Sueldo Neto (Sin IMSS): "<<Percep<<endl;
 	
 
-	cout<<"\nSalario Diario: "<<SD<<"\n";
-	cout<<"Salario Diario Integrado (SDI): "<<SDI<<"\n";
+
+	cout<<"\n	Salario Diario: "<<SD<<"\n";
+	cout<<"	Salario Diario Integrado (SDI): "<<SDI<<"\n";
 	
 	
-	cout<<"\nDias trabajados: "<< Finicio <<"\n" ;	
-	cout<<"Tienes derecho a "<<Dvac<<" dias de vacaciones\n";
-	cout<<"Vacaciones (Anual): "<<vacaciones<<"\n";
-	cout<<"Prima vacacional (Anual) "<<prima<<"\n";
+	cout<<"\n	Dias trabajados: "<< Finicio <<"\n" ;	
+	cout<<"	Tienes derecho a "<<Dvac<<" dias de vacaciones\n";
+	cout<<"	Vacaciones (Anual): "<<vacaciones<<"\n";
+	cout<<"	Prima vacacional (Anual) "<<prima<<"\n";
 //	cout<<"Tu aguinaldo es de: "<<aguinaldo<<"\n";
 //	cout<<"Tu salario final es de: "<<pago<<"\n";
 			
@@ -324,3 +342,6 @@ int main(){
 	*/
 	return 0;
 }
+
+
+
