@@ -13,6 +13,7 @@ int main(){
 	
 	float SD, SaBruto, SDI, pago, FacI;
 	int  Finicio, Dvac;
+	float Excedente, LimInf,LimSup, ISRCuo, ISRpor, ISRMar, ISRFULL;
 	const int PrimaVac=25;
 	
 	
@@ -102,6 +103,60 @@ int main(){
 	float quincena;
 	quincena = SaBruto/2;
 	
+	int qred = trunc(quincena)*100;
+
+	switch (qred)
+	{
+		//1
+		case 1 ... 36810:
+			cout<<"ISR 1\n";
+			LimInf = 0.01;
+			LimSup = 368.10;
+			ISRCuo = 0.00;
+			ISRpor = 0.0192;
+			break;
+		//2	
+		case 36811 ... 312435:
+			cout<<"ISR 2\n";
+			LimInf = 368.11;
+			LimSup = 3124.35;
+			ISRCuo = 7.05;
+			ISRpor = 0.0640;
+			break;
+		//3
+		case 312436 ... 549075:
+			cout<<"ISR 2\n";
+			LimInf = 3124.36;
+			LimSup = 5490.75;
+			ISRCuo = 183.45;
+			ISRpor = 0.1088;
+			break;
+		//4	
+		case 549076 ... 638280:
+			cout<<"ISR 2\n";
+			LimInf = 5490.76;
+			LimSup = 6382.80;
+			ISRCuo = 441.00;
+			ISRpor = 0.1600;
+			break;
+		//5
+		case 549076 ... 638280:
+			cout<<"ISR 2\n";
+			LimInf = 6382.81;
+			LimSup = 7641.90;
+			ISRCuo = 441.00;
+			ISRpor = 0.1600;
+			break;	
+	}
+	
+	
+	Excedente = quincena-LimInf;
+	ISRMar = Excedente*ISRpor;
+	ISRFULL = ISRCuo+ISRMar;
+	
+	cout<<ISRFULL<<endl;
+	
+	
 	float vacaciones, prima, aguinaldo;
 	
 	vacaciones=SD*Dvac;
@@ -112,7 +167,7 @@ int main(){
 
 	
 	cout<<"\n\n"<<"-CALCULANDO CON: $"<<SaBruto<< " mensuales	";
-	cout<<"-Tu Pago Quincenal seria de "<< fixed << setprecision(4)<<quincena<< "	";
+	cout<<"-Percepcion Quincenal: "<< fixed << setprecision(4)<<quincena<< "	";
 	cout<<"-Factor de integracion: "<< FacI << "\n\n";
 	
 
