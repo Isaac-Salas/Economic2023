@@ -4,15 +4,40 @@
 #include <iomanip>
 
 using namespace std;
-int restart = 0;
+int restart;
 
 int runtime();
 
 int main()
 {
+	restart = 1;
+	
 	while(1)
 	{
-		runtime();
+		switch(restart)
+		{
+			case 0:
+				cout<<"\n\n	Qusieras hacer un calculo nuevo?";
+				cout<<"\n		[1.] -> Si";
+				cout<<"\n		[2.] -> No";
+				cout<<"\n\n	Teclea el numero de opcion deseada: ";
+				cin>>restart;
+				break;
+				
+			case 1:
+				system("cls");
+				runtime();
+				restart=0;
+				break;
+			case 2:
+				system("cls");
+				exit(0);
+				break;
+			default:
+				break;
+
+				
+		}
 	}
 
 
@@ -21,6 +46,9 @@ int main()
 
 int runtime()
 {
+	//Proyecto final de Ingenieria Economica
+	//Por: Isaac Salas Carmona
+	
 
 	cout<<"\n					Calculadora de...\n\n";
 	
@@ -31,8 +59,7 @@ int runtime()
 	cout<<"	  +#+  +#+#+# +#+    +#+ +#+       +#+     +#+     +#+  +#+#+# +#+     +#+  \n";
 	cout<<"	 #+#   #+#+# #+#    #+# #+#       #+#     #+#     #+#   #+#+# #+#     #+#  \n";
 	cout<<"	###    ####  ########  ###       ### ########### ###    #### ###     ###    \n";
-//	cout<<"Carmen Judith GUzman Cortez\n";
-//	cout<<"Bienvenido a la calculadora de nominas\n";
+	
 	
 	float SD, SaBruto, SDI, pago, FacI;
 	int  Finicio, Dvac, FacConv;
@@ -119,8 +146,7 @@ int runtime()
 			Dvac=31;
 			FacI =1.0630;
 			SDI = SD*FacI;
-			break;
-				
+			break;			
 	}
 	
 	
@@ -221,8 +247,7 @@ int runtime()
 			LimSup = qred;
 			ISRCuo = 58180.35;
 			ISRpor = 0.3500;
-			break;
-			
+			break;			
 	}
 	
 	switch (sub)
