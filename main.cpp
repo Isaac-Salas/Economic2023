@@ -13,7 +13,7 @@ int main(){
 	
 	float SD, SaBruto, SDI, pago, FacI;
 	int  Finicio, Dvac, FacConv;
-	float Excedente, LimInf,LimSup, ISRCuo, ISRpor, ISRMar, ISRFULL;
+	float Excedente, LimInf,LimSup, ISRCuo, ISRpor, ISRMar, ISRFULL, ISRsub, SumISR, Percep;
 	const int PrimaVac=25;
 	
 	
@@ -190,24 +190,71 @@ int main(){
 			ISRCuo = 16130.55;
 			ISRpor = 0.3400;
 			break;
-		//11
-		case 18551432 ... 50000000:
+		//11		
+		default:
 			cout<<"ISR 11\n";
 			LimInf = 185514.32;
-			LimSup = 500000.00;
+			LimSup = qred;
 			ISRCuo = 58180.35;
 			ISRpor = 0.3500;
 			break;
+			
 	}
 	
-
+	switch (sub)
+	{
+		//1
+		case 1 ... 87285:
+			ISRsub= 200.85;
+			break;
+		//2
+		case 87286 ... 130920:
+			ISRsub= 200.70;
+			break;
+		//3
+		case 130921 ... 171360:
+			ISRsub= 200.70;
+			break;
+		//4	
+		case 171361 ... 174570:
+			ISRsub= 193.8;
+			break;
+		//5
+		case 174571 ... 219375:
+			ISRsub= 188.70;
+			break;
+		//6
+		case 219376 ... 232755:
+			ISRsub= 174.75;
+			break;
+		//7
+		case 232756 ... 263265:
+			ISRsub= 160.35;
+			break;
+		//8
+		case 263266 ... 307140:
+			ISRsub= 145.35;
+			break;
+		//9
+		case 307141 ... 351015:
+			ISRsub= 125.10;
+			break;
+		//10
+		case 351016 ... 364260:
+			ISRsub= 107.4;
+			break;	
+		//11
+		default:
+			ISRsub= 0.0;
+			break;		
+	}
 	
 	
 	Excedente = quincena-LimInf;
 	ISRMar = Excedente*ISRpor;
 	ISRFULL = ISRCuo+ISRMar;
-	
-	cout<<ISRFULL<<endl;
+	SumISR = ISRFULL-ISRsub;
+	Percep = quincena-SumISR;
 	
 	
 	float vacaciones, prima, aguinaldo;
@@ -217,7 +264,18 @@ int main(){
 	if(Finicio>1)
 	aguinaldo=(SaBruto/365)*Finicio;
 	pago= SD*15;
-
+	
+	cout<<"Limite Inferior: "<<LimInf<<endl;
+	cout<<"Exedente: "<<Excedente<<endl;
+	cout<<"ISR Marginal: "<<ISRMar<<endl;
+	cout<<"Cuota ISR: "<<ISRCuo<<endl;
+	
+	cout<<"Subsidio"<<ISRsub<<endl;
+	
+	
+	cout<<"ISRFull: "<<ISRFULL<<endl;
+	cout<<"Resta ISR: "<<SumISR<<endl;
+	cout<<"Percepciones: "<<Percep<<endl;
 	
 	cout<<"\n\n"<<"-CALCULANDO CON: $"<<SaBruto<< " mensuales	";
 	cout<<"-Percepcion Quincenal: "<< fixed << setprecision(4)<<quincena<< "		";
