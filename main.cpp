@@ -64,6 +64,7 @@ int runtime()
 	float SD, SaBruto, SDI, pago, FacI;
 	int  Finicio, Dvac, FacConv;
 	float Excedente, LimInf,LimSup, ISRCuo, ISRpor, ISRMar, ISRFULL, ISRsub, SumISR, Percep;
+	float UMA, IMSSSBC, IMSSAux, EnfEspecie, EnfPens, EnfDinero, Invalidez, CEAV, IMSSEnfEspecie, IMSSEnfPens, IMSSEnfDinero, IMSSInvalidez, IMSSCEAV, IMSSTOTAL; 
 	const int PrimaVac=25;
 	
 	cout<<"\n\n	-------------------------------------------------------------------";
@@ -307,13 +308,33 @@ int runtime()
 			break;		
 	}
 	
-	
+
 	Excedente = quincena-LimInf;
 	ISRMar = Excedente*ISRpor;
 	ISRFULL = ISRCuo+ISRMar;
 	SumISR = ISRFULL-ISRsub;
 	
 	Percep = quincena-SumISR;
+	
+	//Cosas del IMSS
+	
+	UMA = 103.74;
+	IMSSSBC = SDI;
+	IMSSAux = IMSSSBC-(UMA*3);
+	
+	EnfEspecie = 0.0040;
+	EnfDinero = 0.0025;
+	EnfPens = 0.00375;
+	Invalidez = 0.00625;
+	CEAV = 0.01125;
+	
+	IMSSEnfEspecie = EnfEspecie*(IMSSAux*15);
+	IMSSEnfPens = EnfPens*(IMSSSBC*15);
+	IMSSEnfDinero = EnfDinero*(IMSSSBC*15);
+	IMSSInvalidez = Invalidez*(IMSSSBC*15);
+	IMSSCEAV = CEAV*(IMSSSBC*15);
+	IMSSTOTAL = IMSSEnfEspecie+IMSSEnfPens+IMSSEnfDinero+IMSSInvalidez+IMSSCEAV;
+	
 	
 	
 	float vacaciones, prima, aguinaldo;
@@ -353,16 +374,21 @@ int runtime()
 	cout<<"	- Sueldo Neto (Sin IMSS):	$"<<Percep<<endl;
 	
 	cout<<"\n	-------------------------------Vacaciones------------------------------------\n";
-	
-
-
-
-	
-	
+		
 	cout<<"\n	- Dias trabajados: "<< Finicio <<"\n" ;	
 	cout<<"	- Tienes derecho a "<<Dvac<<" dias de vacaciones\n";
 	cout<<"	- Vacaciones (Anual): $"<<vacaciones<<"\n";
 	cout<<"	- Prima vacacional (Anual) $"<<prima<<"\n";
+	
+	cout<<"\n	-------------------------------IMSS------------------------------------\n";
+	cout<<"\n	-  SBC: $"<< IMSSSBC <<"\n" ;
+	cout<<"	-  Auxiliar (SBC - 3 UMAs): "<< IMSSAux <<"\n" ;
+	cout<<"	-  Enfermedades y Maternidad(Cuota adicional): $"<< IMSSEnfEspecie <<"\n" ;
+	cout<<"	-  Enfermedades y Maternidad(Gastos Medicos): $"<< IMSSEnfPens <<"\n" ;
+	cout<<"	-  Enfermedades y Maternidad(En Dinero): $"<< IMSSEnfDinero <<"\n" ;
+	cout<<"	-  Invalidez y Vida $"<< IMSSInvalidez <<"\n" ;
+	cout<<"	-  CEAV: $"<< IMSSCEAV <<"\n" ;	
+	cout<<"	-  IMSS(Suma de todos): $"<< IMSSTOTAL <<"\n" ;	
 	
 		cout<<"\n	-------------------------------------------------------------------";
 		cout<<"\n	-------------------------------------------------------------------";
