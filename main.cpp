@@ -97,6 +97,8 @@ int main(){
 				
 	}
 	
+	
+	
 	float quincena;
 	quincena = SaBruto/2;
 	
@@ -109,13 +111,17 @@ int main(){
 	pago= SD*15;
 
 	
+	cout<<"\n\n"<<"-CALCULANDO CON: $"<<SaBruto<< " mensuales	";
+	cout<<"-Tu Pago Quincenal seria de "<< fixed << setprecision(4)<<quincena<< "	";
+	cout<<"-Factor de integracion: "<< FacI << "\n\n";
 	
-	cout<<"Tienes derecho a "<<Dvac<<" dias de vacaciones\n\n";
-	cout<<"Tu Pago Quincenal seria de "<< fixed << setprecision(4)<<quincena<< "\n\n";
-	cout<<"Factor de integracion: "<< FacI << "\n\n";
-	
-	cout<<"Salario Diario: "<<SD<<"\n";
+
+	cout<<"\nSalario Diario: "<<SD<<"\n";
 	cout<<"Salario Diario Integrado (SDI): "<<SDI<<"\n";
+	
+	
+	cout<<"\nDias trabajados: "<< Finicio <<"\n" ;	
+	cout<<"Tienes derecho a "<<Dvac<<" dias de vacaciones\n";
 	cout<<"Vacaciones (Anual): "<<vacaciones<<"\n";
 	cout<<"Prima vacacional (Anual) "<<prima<<"\n";
 	cout<<"Tu aguinaldo es de: "<<aguinaldo<<"\n";
