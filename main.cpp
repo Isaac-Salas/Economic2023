@@ -6,8 +6,16 @@
 using namespace std;
 
 int main(){
+
+	cout<<"\n					Calculadora de...\n\n";
 	
-	cout<<"Proyecto Final Ingenieria Economica\n";
+	cout<<"	      ::::    :::  ::::::::    :::   :::   ::::::::::: ::::    :::     :::  \n";
+	cout<<"	     :+:+:   :+: :+:    :+:  :+:+: :+:+:      :+:     :+:+:   :+:   :+: :+: \n";
+	cout<<"	    :+:+:+  +:+ +:+    +:+ +:+ +:+:+ +:+     +:+     :+:+:+  +:+  +:+   +:+ \n";
+	cout<<"	   +#+ +:+ +#+ +#+    +:+ +#+  +:+  +#+     +#+     +#+ +:+ +#+ +#++:++#++: \n";
+	cout<<"	  +#+  +#+#+# +#+    +#+ +#+       +#+     +#+     +#+  +#+#+# +#+     +#+  \n";
+	cout<<"	 #+#   #+#+# #+#    #+# #+#       #+#     #+#     #+#   #+#+# #+#     #+#  \n";
+	cout<<"	###    ####  ########  ###       ### ########### ###    #### ###     ###    \n";
 //	cout<<"Carmen Judith GUzman Cortez\n";
 //	cout<<"Bienvenido a la calculadora de nominas\n";
 	
@@ -16,8 +24,8 @@ int main(){
 	float Excedente, LimInf,LimSup, ISRCuo, ISRpor, ISRMar, ISRFULL, ISRsub, SumISR, Percep;
 	const int PrimaVac=25;
 	
-	
-	cout<<"Ingresa tu salario bruto mensual: $";
+	cout<<"\n\n	-------------------------------------------------------------------";
+	cout<<"\n\n	Ingresa tu salario bruto mensual: $";
 	cin>>SaBruto;
 	
 	cout<<"Ingresa tu antiguedad en dias: ";
