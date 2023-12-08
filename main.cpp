@@ -314,7 +314,7 @@ int runtime()
 	ISRFULL = ISRCuo+ISRMar;
 	SumISR = ISRFULL-ISRsub;
 	
-	Percep = quincena-SumISR;
+
 	
 	//Cosas del IMSS
 	
@@ -334,6 +334,8 @@ int runtime()
 	IMSSInvalidez = Invalidez*(IMSSSBC*15);
 	IMSSCEAV = CEAV*(IMSSSBC*15);
 	IMSSTOTAL = IMSSEnfEspecie+IMSSEnfPens+IMSSEnfDinero+IMSSInvalidez+IMSSCEAV;
+	
+	Percep = quincena-SumISR-IMSSTOTAL;
 	
 	
 	
@@ -370,8 +372,9 @@ int runtime()
 	{
 	cout<<"	- ISR:				$"<<ISRFULL<<endl;
 	}
+	
 	cout<<"	- (ISR - Subsidio):		$"<<SumISR<<endl;
-	cout<<"	- Sueldo Neto (Sin IMSS):	$"<<Percep<<endl;
+	
 	
 	cout<<"\n	-------------------------------Vacaciones------------------------------------\n";
 		
@@ -389,6 +392,12 @@ int runtime()
 	cout<<"	-  Invalidez y Vida $"<< IMSSInvalidez <<"\n" ;
 	cout<<"	-  CEAV: $"<< IMSSCEAV <<"\n" ;	
 	cout<<"	-  IMSS(Suma de todos): $"<< IMSSTOTAL <<"\n" ;	
+	
+	cout<<"\n	-------------------------------SUELDOS------------------------------------\n";
+	
+	cout<<"\n	-  ISR: $"<< SumISR <<"\n" ;
+	cout<<"	-  IMSS: $"<< IMSSTOTAL <<"\n" ;	
+	cout<<"	- Sueldo Neto :	$"<<Percep<<endl;
 	
 		cout<<"\n	-------------------------------------------------------------------";
 		cout<<"\n	-------------------------------------------------------------------";
