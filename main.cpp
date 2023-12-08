@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <iostream>
+#include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -10,17 +12,18 @@ int main(){
 //	cout<<"Bienvenido a la calculadora de nominas\n";
 	
 	float SD, SaBruto, SDI, pago, FacI;
-	int  Finicio, PrimaVac,Dvac;
-	PrimaVac=25;
+	int  Finicio, Dvac;
+	const int PrimaVac=25;
 	
 	
-	
-	cout<<"Ingresa tu salario bruto mensual: ";
+	cout<<"Ingresa tu salario bruto mensual: $";
 	cin>>SaBruto;
 	
 	cout<<"Ingresa tu antiguedad en dias: ";
 	cin>>Finicio;
-
+	
+	SD= SaBruto/30.4;
+	
 
 	switch (Finicio)
 	{
@@ -73,27 +76,48 @@ int main(){
 			FacI =1.0589;
 			SDI = SD*FacI;
 			break;
-			
-		case (365*16) ... (365*21)-1:
+		//21 a 25 años
+		case (365*21) ... (365*26)-1:
+			Dvac=28;
+			FacI =1.0603;
+			SDI = SD*FacI;
+			break;
+		//26 a 30 años
+		case (365*26) ... (365*31)-1:
+			Dvac=30;
+			FacI =1.0616;
+			SDI = SD*FacI;
+			break;
+		//31 a 35 años
+		case (365*31) ... (365*36)-1:
+			Dvac=31;
+			FacI =1.0630;
+			SDI = SD*FacI;
+			break;
+				
 	}
 	
+	float quincena;
+	quincena = SaBruto/2;
 	
 	float vacaciones, prima, aguinaldo;
-	SD= SaBruto/30.4;
+	
 	vacaciones=SD*Dvac;
 	prima=(vacaciones*PrimaVac)/100;
 	if(Finicio>1)
-	aguinaldo=SD*15;
+	aguinaldo=(SaBruto/365)*Finicio;
 	pago= SD*15;
-	
-	
 
-	cout<<"Tienes derecho a "<<Dvac<<" dias de vacaciones\n\n";
-	cout<<"Factor de integracion: "<<FacI<<"\n\n";
 	
-	cout<<"Tu salario diario es de: "<<SD<<"\n";
-	cout<<"Tus vacaciones son de: "<<vacaciones<<"\n";
-	cout<<"Tu prima vacacional es de: "<<prima<<"\n";
+	
+	cout<<"Tienes derecho a "<<Dvac<<" dias de vacaciones\n\n";
+	cout<<"Tu Pago Quincenal seria de "<< fixed << setprecision(4)<<quincena<< "\n\n";
+	cout<<"Factor de integracion: "<< FacI << "\n\n";
+	
+	cout<<"Salario Diario: "<<SD<<"\n";
+	cout<<"Salario Diario Integrado (SDI): "<<SDI<<"\n";
+	cout<<"Vacaciones (Anual): "<<vacaciones<<"\n";
+	cout<<"Prima vacacional (Anual) "<<prima<<"\n";
 	cout<<"Tu aguinaldo es de: "<<aguinaldo<<"\n";
 	cout<<"Tu salario final es de: "<<pago<<"\n";
 			
