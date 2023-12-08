@@ -107,6 +107,7 @@ int main(){
 	
 	int qred = quincena*100;
 	int sub = quincena*100;
+	cout<<"\n";
 
 	switch (qred)
 	{
@@ -254,6 +255,7 @@ int main(){
 	ISRMar = Excedente*ISRpor;
 	ISRFULL = ISRCuo+ISRMar;
 	SumISR = ISRFULL-ISRsub;
+	
 	Percep = quincena-SumISR;
 	
 	
@@ -262,7 +264,7 @@ int main(){
 	vacaciones=SD*Dvac;
 	prima=(vacaciones*PrimaVac)/100;
 	if(Finicio>1)
-	aguinaldo=(SaBruto/365)*Finicio;
+	//aguinaldo=(SaBruto/365)*Finicio;
 	pago= SD*15;
 	
 	cout<<"Limite Inferior: "<<LimInf<<endl;
@@ -270,12 +272,18 @@ int main(){
 	cout<<"ISR Marginal: "<<ISRMar<<endl;
 	cout<<"Cuota ISR: "<<ISRCuo<<endl;
 	
-	cout<<"Subsidio"<<ISRsub<<endl;
+	cout<<"Subsidio: "<<ISRsub<<endl;
 	
-	
+	if(ISRsub>0)
+	{
+	cout<<"ISRFull: 0.0"<<endl;
+	}
+	else
+	{
 	cout<<"ISRFull: "<<ISRFULL<<endl;
+	}
 	cout<<"Resta ISR: "<<SumISR<<endl;
-	cout<<"Percepciones: "<<Percep<<endl;
+	cout<<"Sueldo Neto (Sin IMSS): "<<Percep<<endl;
 	
 	cout<<"\n\n"<<"-CALCULANDO CON: $"<<SaBruto<< " mensuales	";
 	cout<<"-Percepcion Quincenal: "<< fixed << setprecision(4)<<quincena<< "		";
@@ -290,8 +298,8 @@ int main(){
 	cout<<"Tienes derecho a "<<Dvac<<" dias de vacaciones\n";
 	cout<<"Vacaciones (Anual): "<<vacaciones<<"\n";
 	cout<<"Prima vacacional (Anual) "<<prima<<"\n";
-	cout<<"Tu aguinaldo es de: "<<aguinaldo<<"\n";
-	cout<<"Tu salario final es de: "<<pago<<"\n";
+//	cout<<"Tu aguinaldo es de: "<<aguinaldo<<"\n";
+//	cout<<"Tu salario final es de: "<<pago<<"\n";
 			
 	/*Tabla de SDI							Tablas de ISR
 	Menos de un año =1.0493					368.11	3,124.35	7.05	6.40
