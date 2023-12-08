@@ -70,7 +70,7 @@ int runtime()
 	cout<<"\n\n	Ingresa tu salario bruto mensual: $";
 	cin>>SaBruto;
 	
-	cout<<"	Ingresa tu antiguedad en dias: ";
+	cout<<"	Ingresa tu antiguedad en dias (Mas de 15): ";
 	cin>>Finicio;
 	
 	SD= SaBruto/30.4;
@@ -152,8 +152,17 @@ int runtime()
 	
 	
 	float quincena;
-	quincena = SaBruto/2;
 	
+//	if (Finicio >=15)
+//	{
+//		quincena = SaBruto/2;
+//	}
+//	else
+//	{
+//		quincena = ((SaBruto/2)/15)*Finicio;
+//	}
+		
+	quincena = SaBruto/2;
 	int qred = quincena*100;
 	int sub = quincena*100;
 	cout<<"\n";
@@ -315,40 +324,48 @@ int runtime()
 	//aguinaldo=(SaBruto/365)*Finicio;
 	pago= SD*15;
 	
-	cout<<"\n"<<"	-CALCULANDO CON: $"<<SaBruto<< " mensuales	";
-	cout<<"	-Percepcion Quincenal: "<< fixed << setprecision(4)<<quincena<< "		";
-	cout<<"	-Factor de integracion: "<< FacI << "\n\n";
+	cout<<"\n	-------------------------------------------------------------------\n\n";
 	
+	cout<<"\n"<<"	x - CALCULANDO CON: $"<<SaBruto<< " mensuales	";
+	cout<<"	x - Percepcion Quincenal: $"<< fixed << setprecision(4)<<quincena<< "		";
+	cout<<"	x - Factor de integracion: "<< FacI << "\n";
+	cout<<"\n			x - Salario Diario: $"<<SD<<"		";
+	cout<<"	x - Salario Diario Integrado (SDI): $"<<SDI<<"\n\n";
 	
+	cout<<"\n	-------------------------------ISR------------------------------------\n";
 	
-	cout<<"\n	Limite Inferior: "<<LimInf<<endl;
-	cout<<"	Exedente: "<<Excedente<<endl;
-	cout<<"	ISR Marginal: "<<ISRMar<<endl;
-	cout<<"	Cuota ISR: "<<ISRCuo<<endl;
+	cout<<"\n	- Limite Inferior:		$"<<LimInf<<endl;
+	cout<<"	- Exedente:			$"<<Excedente<<endl;
+	cout<<"	- ISR Marginal:			$"<<ISRMar<<endl;
+	cout<<"	- Cuota ISR:			$"<<ISRCuo<<endl;
 	
-	cout<<"	Subsidio: "<<ISRsub<<endl;
+	cout<<"	- Subsidio:			$"<<ISRsub<<endl;
 	
 	if(ISRsub>0)
 	{
-	cout<<"	ISRFull: 0.0"<<endl;
+	cout<<"	- ISR:				$0.0"<<endl;
 	}
 	else
 	{
-	cout<<"	ISRFull: "<<ISRFULL<<endl;
+	cout<<"	- ISR:				$"<<ISRFULL<<endl;
 	}
-	cout<<"	Resta ISR: "<<SumISR<<endl;
-	cout<<"	Sueldo Neto (Sin IMSS): "<<Percep<<endl;
+	cout<<"	- (ISR - Subsidio):		$"<<SumISR<<endl;
+	cout<<"	- Sueldo Neto (Sin IMSS):	$"<<Percep<<endl;
+	
+	cout<<"\n	-------------------------------Vacaciones------------------------------------\n";
 	
 
 
-	cout<<"\n	Salario Diario: "<<SD<<"\n";
-	cout<<"	Salario Diario Integrado (SDI): "<<SDI<<"\n";
+
 	
 	
-	cout<<"\n	Dias trabajados: "<< Finicio <<"\n" ;	
-	cout<<"	Tienes derecho a "<<Dvac<<" dias de vacaciones\n";
-	cout<<"	Vacaciones (Anual): "<<vacaciones<<"\n";
-	cout<<"	Prima vacacional (Anual) "<<prima<<"\n";
+	cout<<"\n	- Dias trabajados: "<< Finicio <<"\n" ;	
+	cout<<"	- Tienes derecho a "<<Dvac<<" dias de vacaciones\n";
+	cout<<"	- Vacaciones (Anual): $"<<vacaciones<<"\n";
+	cout<<"	- Prima vacacional (Anual) $"<<prima<<"\n";
+	
+		cout<<"\n	-------------------------------------------------------------------";
+		cout<<"\n	-------------------------------------------------------------------";
 //	cout<<"Tu aguinaldo es de: "<<aguinaldo<<"\n";
 //	cout<<"Tu salario final es de: "<<pago<<"\n";
 			
