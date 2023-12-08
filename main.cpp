@@ -12,7 +12,7 @@ int main(){
 //	cout<<"Bienvenido a la calculadora de nominas\n";
 	
 	float SD, SaBruto, SDI, pago, FacI;
-	int  Finicio, Dvac;
+	int  Finicio, Dvac, FacConv;
 	float Excedente, LimInf,LimSup, ISRCuo, ISRpor, ISRMar, ISRFULL;
 	const int PrimaVac=25;
 	
@@ -25,72 +25,74 @@ int main(){
 	
 	SD= SaBruto/30.4;
 	
+	FacConv= Finicio*10;
+	
 
-	switch (Finicio)
+	switch (FacConv)
 	{
 		//1 año o menos
-		case 1 ... (365*2)-1:
+		case 10 ... (3648*2)-1:
 			Dvac=12;
 			FacI = 1.0493;
 			SDI = SD*FacI;
 			break;
 			
 		//2 años
-		case (365*2) ... (365*3)-1:
+		case (3648*2) ... (3648*3)-1:
 			Dvac=14;
 			FacI =1.0507;
 			SDI = SD*FacI;
 			break;
 		//3 años
-		case (365*3) ... (365*4)-1:
+		case (3648*3) ... (3648*4)-1:
 			Dvac=16;
 			FacI =1.0521;
 			SDI = SD*FacI;
 			break;
 		//4 años
-		case (365*4) ... (365*5)-1:
+		case (3648*4) ... (3648*5)-1:
 			Dvac=18;
 			FacI =1.0534;
 			SDI = SD*FacI;
 			break;
 		//5 años
-		case (365*5) ... (365*6)-1:
+		case (3648*5) ... (3648*6)-1:
 			Dvac=20;
 			FacI =1.0548;
 			SDI = SD*FacI;
 			break;
 		//6 a 10 años
-		case (365*6) ... (365*11)-1:
+		case (3648*6) ... (3648*11)-1:
 			Dvac=22;
 			FacI =1.0562;
 			SDI = SD*FacI;
 			break;
 		//11 a 15 años
-		case (365*11) ... (365*16)-1:
+		case (3648*11) ... (3648*16)-1:
 			Dvac=24;
 			FacI =1.0575;
 			SDI = SD*FacI;
 			break;
 		//16 a 20 años
-		case (365*16) ... (365*21)-1:
+		case (3648*16) ... (3648*21)-1:
 			Dvac=26;
 			FacI =1.0589;
 			SDI = SD*FacI;
 			break;
 		//21 a 25 años
-		case (365*21) ... (365*26)-1:
+		case (3648*21) ... (3648*26)-1:
 			Dvac=28;
 			FacI =1.0603;
 			SDI = SD*FacI;
 			break;
 		//26 a 30 años
-		case (365*26) ... (365*31)-1:
+		case (3648*26) ... (3648*31)-1:
 			Dvac=30;
 			FacI =1.0616;
 			SDI = SD*FacI;
 			break;
 		//31 a 35 años
-		case (365*31) ... (365*36)-1:
+		case (3648*31) ... (3648*36)-1:
 			Dvac=31;
 			FacI =1.0630;
 			SDI = SD*FacI;
@@ -103,7 +105,8 @@ int main(){
 	float quincena;
 	quincena = SaBruto/2;
 	
-	int qred = trunc(quincena)*100;
+	int qred = quincena*100;
+	int sub = quincena*100;
 
 	switch (qred)
 	{
@@ -125,7 +128,7 @@ int main(){
 			break;
 		//3
 		case 312436 ... 549075:
-			cout<<"ISR 2\n";
+			cout<<"ISR 3\n";
 			LimInf = 3124.36;
 			LimSup = 5490.75;
 			ISRCuo = 183.45;
@@ -133,21 +136,71 @@ int main(){
 			break;
 		//4	
 		case 549076 ... 638280:
-			cout<<"ISR 2\n";
+			cout<<"ISR 4\n";
 			LimInf = 5490.76;
 			LimSup = 6382.80;
 			ISRCuo = 441.00;
 			ISRpor = 0.1600;
 			break;
 		//5
-		case 549076 ... 638280:
-			cout<<"ISR 2\n";
+		case 638281 ... 764190:
+			cout<<"ISR 5\n";
 			LimInf = 6382.81;
 			LimSup = 7641.90;
-			ISRCuo = 441.00;
-			ISRpor = 0.1600;
+			ISRCuo = 583.65;
+			ISRpor = 0.1792;
 			break;	
+		//6
+		case 764191 ... 1541280:
+			cout<<"ISR 6\n";
+			LimInf = 7641.91;
+			LimSup = 15412.80;
+			ISRCuo = 809.25;
+			ISRpor = 0.2136;
+			break;	
+		//7
+		case 1541281 ... 2429265:
+			cout<<"ISR 7\n";
+			LimInf = 15412.81;
+			LimSup = 24292.65;
+			ISRCuo = 2469.15;
+			ISRpor = 0.2352;
+			break;	
+		//8
+		case 2429266 ... 4637850:
+			cout<<"ISR 8\n";
+			LimInf = 24292.66;
+			LimSup = 46378.50;
+			ISRCuo = 4557.75;
+			ISRpor = 0.3000;
+			break;	
+		//9
+		case 4637851 ... 6183810:
+			cout<<"ISR 9\n";
+			LimInf = 46378.51;
+			LimSup = 61838.10;
+			ISRCuo = 11183.4;
+			ISRpor = 0.3200;
+			break;
+		//10
+		case 6183811 ... 18551431:
+			cout<<"ISR 10\n";
+			LimInf = 61838.11;
+			LimSup = 185514.31;
+			ISRCuo = 16130.55;
+			ISRpor = 0.3400;
+			break;
+		//11
+		case 18551432 ... 50000000:
+			cout<<"ISR 11\n";
+			LimInf = 185514.32;
+			LimSup = 500000.00;
+			ISRCuo = 58180.35;
+			ISRpor = 0.3500;
+			break;
 	}
+	
+
 	
 	
 	Excedente = quincena-LimInf;
@@ -167,7 +220,7 @@ int main(){
 
 	
 	cout<<"\n\n"<<"-CALCULANDO CON: $"<<SaBruto<< " mensuales	";
-	cout<<"-Percepcion Quincenal: "<< fixed << setprecision(4)<<quincena<< "	";
+	cout<<"-Percepcion Quincenal: "<< fixed << setprecision(4)<<quincena<< "		";
 	cout<<"-Factor de integracion: "<< FacI << "\n\n";
 	
 
