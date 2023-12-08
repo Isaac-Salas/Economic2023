@@ -6,8 +6,8 @@ using namespace std;
 int main(){
 	
 	cout<<"Proyecto Final Ingenieria Economica\n";
-	cout<<"Carmen Judith GUzman Cortez\n";
-	cout<<"Bienvenido a la calculadora de nominas\n";
+//	cout<<"Carmen Judith GUzman Cortez\n";
+//	cout<<"Bienvenido a la calculadora de nominas\n";
 	
 	float SD, SaBruto, SDI, pago, FacI;
 	int  Finicio, PrimaVac,Dvac;
@@ -67,7 +67,14 @@ int main(){
 			FacI =1.0575;
 			SDI = SD*FacI;
 			break;
+		//16 a 20 años
+		case (365*16) ... (365*21)-1:
+			Dvac=26;
+			FacI =1.0589;
+			SDI = SD*FacI;
+			break;
 			
+		case (365*16) ... (365*21)-1:
 	}
 	
 	
